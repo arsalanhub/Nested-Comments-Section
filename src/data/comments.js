@@ -29,7 +29,31 @@ const commentsData = [
     {
       id: 5,
       comment: "Lorem ipsum 6",
-      subComments: [],
+      subComments: [
+        {
+          id: 7,
+          comment: "Lorem Ipsum 7",
+          subComments: [
+            {
+              id: 8,
+              comment: "Lorem Ipsum 8",
+              subComments: [
+                {
+                  id: 9,
+                  comment: "Lorem Ipsum 9",
+                  subComments: [
+                    {
+                      id: 10,
+                      comment: "Lorem Ipsum 10",
+                      subComments: [],
+                    }
+                  ],
+                }
+              ],
+            }
+          ],
+        }
+      ],
     },
   ];
   
