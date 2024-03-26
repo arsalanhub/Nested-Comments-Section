@@ -1,5 +1,6 @@
 import { useState } from "react"
 import styles from "./styles.module.css"
+import { getRandomAvatar } from "../../utils/helper";
 
 const CommentItem = ({ comment, addNewReply }) => {
     const [visible, setVisible] = useState(false);
@@ -15,12 +16,17 @@ const CommentItem = ({ comment, addNewReply }) => {
         <>
             <div className={styles.commentContainer}>
                 <div className={styles.details}>
-                    <div>{comment.comment}</div>
-                    <div className={styles.controls}>
-                        {comment.subComments.length > 0 && <span onClick={() => setVisible(!visible)}>
-                            View Reply
-                        </span>}
-                        <span onClick={() => setAddReply(!addReply)}>Add Reply</span>
+                    <div className={styles.image}>
+                        <img style={{ height: "3rem", width: "3rem" }} src={getRandomAvatar()} />
+                    </div>
+                    <div>
+                        <div>{comment.comment}</div>
+                        <div className={styles.controls}>
+                            {comment.subComments.length > 0 && <span onClick={() => setVisible(!visible)}>
+                                View Reply
+                            </span>}
+                            <span onClick={() => setAddReply(!addReply)}>Add Reply</span>
+                        </div>
                     </div>
                 </div>
                 {visible && comment.subComments.length > 0 && <Comment commentsData={comment.subComments} addNewReply={addNewReply} />}
